@@ -51,7 +51,7 @@ export const extractAgentData = async (base64Image: string): Promise<Partial<Age
 /**
  * Stage 2: Gap analysis using the KW Business Consultant persona.
  */
-ort const analyzeGaps = async (data: AgentData): Promise<AnalysisResult> => {
+export const analyzeGaps = async (data: AgentData): Promise<AnalysisResult> => {
   const ai = getAI();
   const prompt = `You are a world-class KW Business Consultant. 
   Perform a deep gap analysis for: ${data.agentName}
