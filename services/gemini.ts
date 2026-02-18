@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { AgentData, AnalysisResult, SynthesisResult } from "../types";
 
-const getAI = () => new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const getAI = () => new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY || '' });
 
 /**
  * Stage 1: Extraction logic for scanning production prints.
