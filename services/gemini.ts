@@ -10,7 +10,7 @@ export const extractAgentData = async (base64Image: string): Promise<Partial<Age
   const ai = getAI();
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-2.0-flash-exp',
       contents: {
         parts: [
           { inlineData: { mimeType: 'image/jpeg', data: base64Image } },
@@ -65,7 +65,7 @@ export const analyzeGaps = async (data: AgentData): Promise<AnalysisResult> => {
   Return as JSON.`;
 
   const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-2.0-flash-exp',
     contents: prompt,
     config: {
       responseMimeType: "application/json",
@@ -118,7 +118,7 @@ export const synthesizeMeeting = async (
   }
 
   const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-2.0-flash-exp',
     contents: { parts: contents },
     config: {
       responseMimeType: "application/json",
