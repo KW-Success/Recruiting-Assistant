@@ -61,7 +61,7 @@ const App: React.FC = () => {
       setAnalysis(result);
       setStage(AppStage.ANALYSIS);
     } catch (err) {
-      alert("Failed to analyze. + (err instanceof Error ? err.message : String(err)));
+      alert("Failed to analyze. " + (err instanceof Error ? err.message : String(err)));
     } finally {
       setLoading(false);
     }
