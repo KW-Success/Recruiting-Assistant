@@ -10,7 +10,7 @@ export const extractAgentData = async (base64Image: string): Promise<Partial<Age
   const ai = getAI();
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.0-flash-exp',
+      model: 'gemini-2.0-flash',
       contents: {
         parts: [
           { inlineData: { mimeType: 'image/jpeg', data: base64Image } },
@@ -51,7 +51,7 @@ export const extractAgentData = async (base64Image: string): Promise<Partial<Age
 /**
  * Stage 2: Gap analysis using the KW Business Consultant persona.
  */
-export const analyzeGaps = async (data: AgentData): Promise<AnalysisResult> => {
+ort const analyzeGaps = async (data: AgentData): Promise<AnalysisResult> => {
   const ai = getAI();
   const prompt = `You are a world-class KW Business Consultant. 
   Perform a deep gap analysis for: ${data.agentName}
@@ -65,7 +65,7 @@ export const analyzeGaps = async (data: AgentData): Promise<AnalysisResult> => {
   Return as JSON.`;
 
   const response = await ai.models.generateContent({
-    model: 'gemini-2.0-flash-exp',
+    model: 'gemini-2.0-flash',
     contents: prompt,
     config: {
       responseMimeType: "application/json",
@@ -118,7 +118,7 @@ export const synthesizeMeeting = async (
   }
 
   const response = await ai.models.generateContent({
-    model: 'gemini-2.0-flash-exp',
+    model: 'gemini-2.0-flash',
     contents: { parts: contents },
     config: {
       responseMimeType: "application/json",
